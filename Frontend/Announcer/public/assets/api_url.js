@@ -1,2 +1,2 @@
-const api_url = "http://localhost:5000";
+const api_url = "https://announcer-rte2.onrender.com";
 export default api_url;
