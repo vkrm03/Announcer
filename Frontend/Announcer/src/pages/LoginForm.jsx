@@ -6,6 +6,7 @@ import '../../public/LoginForm.css';
 
 const LoginForm = ({ setIsLoggedIn }) => {
   const [isChangingPwd, setIsChangingPwd] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,6 +19,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await fetch(api_url + '/login', {
@@ -47,11 +49,14 @@ const LoginForm = ({ setIsLoggedIn }) => {
         text: 'Something went wrong. Try again later.',
         icon: 'error',
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleChangePassword = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await fetch(api_url + '/change-password', {
@@ -83,6 +88,8 @@ const LoginForm = ({ setIsLoggedIn }) => {
         text: 'Something went wrong.',
         icon: 'error',
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -91,7 +98,9 @@ const LoginForm = ({ setIsLoggedIn }) => {
       <div className="shape"></div>
       <div className="shape"></div>
 
-      {!isChangingPwd ? (
+      {loading ? (
+        <div className="loader">Processing...</div>
+      ) : !isChangingPwd ? (
         <form onSubmit={handleLogin}>
           <h3>Login Here</h3>
           <input

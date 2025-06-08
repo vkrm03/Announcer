@@ -107,3 +107,17 @@ form button:hover {
     font-size: 1.1rem;
   }
 }
+
+.loader {
+  font-size: 1.6rem;
+  color: white;
+  text-align: center;
+  margin-top: 40px;
+  animation: blink 1.2s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
