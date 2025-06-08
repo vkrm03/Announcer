@@ -115,7 +115,7 @@ mongoose
         desc,
         date,
         imageBase64,
-        user: req.user.id  // 👈 store the user's ID
+        user: req.user.id
       });
   
       const saved = await poster.save();
@@ -126,9 +126,6 @@ mongoose
     }
   });
   
-  
-
-  // Assuming you're using a verifyToken middleware
   app.get('/api/getPosters', auth, async (req, res) => {
     try {
       const posters = await Poster.find({ user: req.user.id });
