@@ -34,49 +34,16 @@ h1 {
   color: #2c3e50;
 }
 
-.grid {
-  margin-top: 20px;
-  display: grid;
-  gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  transition: filter 0.3s ease;
-}
-
 .blurred {
   filter: blur(5px);
   pointer-events: none;
   user-select: none;
 }
 
-.card {
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: scale(1.03);
-}
-
-.card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-
 .event-content {
   padding: 1rem;
 }
 
-.card h2 {
-  font-size: 1.3rem;
-  margin: 0.5rem 0;
-}
-
-/* Fullscreen overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -91,13 +58,59 @@ h1 {
   align-items: center;
 }
 
+.grid {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  transition: filter 0.3s ease;
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 340px;
+  min-width: 280px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.event-content {
+  padding: 1rem;
+  background: #f5f5f5;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #2c3e50;
+}
+
+
 .details button svg {
   margin-right: 8px;
   vertical-align: middle;
 }
 
-
-/* Focused Event Card */
 .focused-card {
   background: white;
   border-radius: 20px;
@@ -130,6 +143,20 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: slideInUp 0.5s ease-in-out;
+}
 
 
 .close-btn {

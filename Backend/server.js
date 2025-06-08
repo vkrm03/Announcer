@@ -1,4 +1,3 @@
-// server.js (backend)
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -50,6 +49,30 @@ mongoose
     }
   });
   
+
+  app.post('/change-password', async (req, res) => {
+  const { email, oldPassword, newPassword } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
+    if (user.password !== oldPassword) {
+      return res.status(400).json({ msg: 'Old password is incorrect' });
+    }
+
+    user.password = newPassword;
+    await user.save();
+
+    res.json({ msg: 'Password updated successfully' });
+  } catch (err) {
+    console.error('Password change error:', err);
+    res.status(500).json({ msg: 'Server error while changing password' });
+  }
+});
 
 
 

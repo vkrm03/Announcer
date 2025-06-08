@@ -1,11 +1,10 @@
-/* The login form container */
 form {
   width: 380px;
   padding: 40px 30px;
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.4); /* Slightly darker for more contrast */
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15); /* Soft white glow */
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
   color: rgb(255, 255, 255);
   z-index: 1;
   position: relative;
@@ -30,7 +29,6 @@ form h3 {
   letter-spacing: 2px;
 }
 
-/* Input fields */
 form input {
   padding: 14px 40px;
   border: none;
@@ -42,12 +40,12 @@ form input {
   outline: none;
   transition: 0.3s;
   font-weight: 500;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Extra contrast */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 form input:focus {
-  background: rgba(255, 255, 255, 0.2); /* Lighter on focus */
-  border: 2px solid #e8f2f0; /* Add a focus border */
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #e8f2f0;
 }
 
 form input::placeholder {
@@ -56,7 +54,6 @@ form input::placeholder {
   font-style: italic;
 }
 
-/* Login button */
 form button {
   color: rgb(255, 255, 255);
   background-color: rgb(60, 172, 60);
@@ -72,11 +69,25 @@ form button {
 }
 
 form button:hover {
-  transform: translateY(1px); /* Slight press effect */
+  transform: translateY(1px);
   background-color: green;
 }
 
-/* Responsive */
+.change-pwd {
+  color: #0893f0;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.change-pwd:hover {
+  color: #3e81bc;
+  text-shadow: 0 0 5px rgba(23, 91, 209, 0.4);
+  transform: scale(1.05);
+}
+
+
 @media (max-width: 500px) {
   form {
     width: 90%;
