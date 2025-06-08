@@ -1,0 +1,98 @@
+/* The login form container */
+form {
+  width: 380px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.4); /* Slightly darker for more contrast */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15); /* Soft white glow */
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.login-div {
+  margin-top: 60px;
+  justify-items: center;
+}
+
+form h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Input fields */
+form input {
+  padding: 14px 40px;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  font-weight: 500;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Extra contrast */
+}
+
+form input:focus {
+  background: rgba(255, 255, 255, 0.2); /* Lighter on focus */
+  border: 2px solid #e8f2f0; /* Add a focus border */
+}
+
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Login button */
+form button {
+  color: rgb(255, 255, 255);
+  background-color: rgb(60, 172, 60);
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+form button:hover {
+  transform: translateY(1px); /* Slight press effect */
+  background-color: green;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  form {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  form h3 {
+    font-size: 1.6rem;
+  }
+
+  form input {
+    font-size: 1.1rem;
+  }
+
+  form button {
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+}

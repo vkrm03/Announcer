@@ -1,0 +1,252 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: #393838;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.sathyabama.ac.in/sites/default/files/inline-images/DJI_0105-New-Low.jpg") no-repeat center center;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+} 
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.grid {
+  margin-top: 20px;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  transition: filter 0.3s ease;
+}
+
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 1rem;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+/* Fullscreen overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details button svg {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
+/* Focused Event Card */
+.focused-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.focused-card img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.details h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.details p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.8rem;
+  background: none; 
+  border: none;
+  color: #333;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.details {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.details button {
+  padding: 10px 20px;
+  background: #29cf1a;
+  color: white;
+  border: none;
+  width: 80%;
+  max-width: 200px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.details button:hover {
+  background: #15d51b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .focused-card {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .focused-card img {
+    max-height: 300px;
+  }
+
+  .details h2 {
+    font-size: 1.5rem;
+  }
+
+  .details p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+  .details button {
+    padding: 10px 20px;
+    width: 80%;
+    max-width: 150px;
+    font-size: 0.7rem;
+  }
+  .container {
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.zoom-img {
+  max-width: 95vw;
+  max-height: 95vh;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.zoom-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 2100;
+}

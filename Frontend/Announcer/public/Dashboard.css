@@ -1,0 +1,328 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    .dashboard-container {
+        display: flex;
+        justify-content: center;
+        background-color: #f5f7fa;
+        min-height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        padding: 20px;
+    }
+    
+    .dashboard-main {
+        width: 100%;
+        max-width: 1200px;
+    }
+    
+    .dashboard-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .admin-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    
+    .admin-role {
+        color: #777;
+        font-size: 0.95rem;
+    }
+    
+    .stats-cards {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    
+    .card {
+        flex: 1 1 250px;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .card h3 {
+        color: #555;
+        font-size: 1.1rem;
+    }
+    
+    .card p {
+        font-size: 2rem;
+        color: #5e17eb;
+    }
+    
+    .upload-and-posters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .upload-section,
+    .poster-preview {
+        flex: 1 1 400px;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+        
+    }
+
+    .poster-preview {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+    
+    .upload-section h2,
+    .poster-preview h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .upload-section form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .poster-preview::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .poster-preview::-webkit-scrollbar-thumb {
+        background-color: #aaa;
+        border-radius: 4px;
+    }
+    
+    
+    
+    .upload-section input[type="text"],
+    .upload-section input[type="date"],
+    .upload-section textarea,
+    .upload-section input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+    
+    .upload-section textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .upload-section button {
+        padding: 12px;
+        background-color: #5e17eb;
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .upload-section button:hover {
+        background-color: #4715c0;
+    }
+    
+    .poster-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .poster-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: #f9f9ff;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        transition: box-shadow 0.3s;
+    }
+    
+    .poster-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .poster-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+    
+    .poster-info {
+        flex: 1;
+    }
+    
+    .poster-info h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #333;
+    }
+    
+    .poster-info p {
+        margin: 5px 0;
+        color: #666;
+        font-size: 0.95rem;
+    }
+    
+    .poster-info small {
+        color: #999;
+        font-size: 0.85rem;
+    }
+    
+    .poster-card button {
+        background: none;
+        border: none;
+        color: #ff3b3b;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+    
+    .poster-card button:hover {
+        color: #e60000;
+    }
+
+    
+
+    @media (max-width: 900px) and (min-width: 701px) {
+        .upload-section {
+          flex: 1 1 100%;   
+          margin: 0 0;
+          padding: 20px;
+          background: white;
+        }
+      
+        .upload-section form {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+      
+      }
+      
+
+      
+      @media (max-width: 700px) {
+        /* Main layout adjustments */
+        .dashboard-container {
+          padding: 15px;
+        }
+      
+        .dashboard-header {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+      
+        .admin-avatar {
+          width: 70px;
+          height: 70px;
+        }
+      
+        .stats-cards {
+          flex-direction: row;
+          gap: 15px;
+        }
+      
+        .card {
+          padding: 15px;
+        }
+      
+        .card h3 {
+          font-size: 1rem;
+        }
+      
+        .card p {
+          font-size: 1.6rem;
+        }
+      
+        .upload-and-posters {
+          flex-direction: column;
+          gap: 20px;
+        }
+      
+        .upload-section,
+        .poster-preview {
+          padding: 30px;
+          flex: 1 1 100%;
+        }
+      
+        .upload-section h2,
+        .poster-preview h2 {
+          font-size: 1.2rem;
+          margin-bottom: 15px;
+        }
+      
+        .upload-section input[type="text"],
+        .upload-section input[type="date"],
+        .upload-section textarea,
+        .upload-section input[type="file"] {
+          font-size: 0.95rem;
+          padding: 8px;
+        }
+      
+        .upload-section textarea {
+          min-height: 80px;
+        }
+      
+        .upload-section button {
+          font-size: 0.95rem;
+          padding: 10px;
+        }
+      
+        /* Poster cards tweak */
+        .poster-card {
+          flex-direction: row;
+          gap: 10px;
+          padding: 12px;
+        }
+      
+        .poster-card img {
+          width: 70px;
+          height: 70px;
+          border-radius: 6px;
+        }
+      
+        .poster-info h3 {
+          font-size: 1rem;
+        }
+      
+        .poster-info p {
+          font-size: 0.9rem;
+        }
+      
+        .poster-info small {
+          font-size: 0.8rem;
+        }
+      
+        .poster-card button {
+          font-size: 1.2rem;
+          align-content: center;
+        }
+      }
+    

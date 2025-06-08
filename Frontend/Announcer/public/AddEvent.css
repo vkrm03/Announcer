@@ -1,0 +1,136 @@
+/* Main Form Container */
+.event-form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #007bff;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+/* Input & Textarea */
+input, textarea {
+    width: calc(100% - 20px);
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f5f7fa;
+    font-size: 16px;
+    transition: 0.3s;
+    display: block;
+    margin-bottom: 15px;
+}
+
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Adjust Textarea */
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+/* File Input */
+input[type="file"] {
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* File Input Label */
+.file-input-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px dashed #007bff;
+    background: #f0f8ff;
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.file-input-label:hover {
+    background: #e3f2fd;
+}
+
+/* Hidden File Input */
+input[type="file"] {
+    display: none;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #007bff, #00c3ff);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #0088ff);
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.image-preview img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Success/Error Messages */
+.message {
+    text-align: center;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.message.success {
+    color: green;
+}
+
+.message.error {
+    color: red;
+}
