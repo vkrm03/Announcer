@@ -137,7 +137,7 @@ const Dashboard = () => {
         <header className="dashboard-header">
           <div className="admin-info">
             <img
-              src="../public/imgs/user.png"
+              src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
               alt="Admin Avatar"
               className="admin-avatar"
             />
