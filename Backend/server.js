@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
 mongoose
-  .connect(process.env.MONGO_URI || 'mongodb://localhost:27017/Announcer')
+  .connect(process.env.MONGO_URI || 'mongodb+srv://vkrm:vkrm@announcer.8zfn5r5.mongodb.net/Announcer')
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log('MongoDB connection error:', err));
 

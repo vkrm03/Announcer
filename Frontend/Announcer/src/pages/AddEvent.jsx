@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../public/AddEvent.css";
+import api_url from '../../public/assets/api_url.js';
 
 const AddEvent = () => {
     const [formData, setFormData] = useState({
@@ -40,21 +41,21 @@ const AddEvent = () => {
         data.append("img", formData.img);
 
         try {
-            const response = await fetch("http://localhost:5000/events/add", {
+            const response = await fetch(`${api_url}/events/add`, {
                 method: "POST",
                 body: data,
             });
 
             const result = await response.json();
             if (result.success) {
-                setMessage("✅ Event uploaded successfully!");
+                setMessage("Event uploaded successfully!");
                 setFormData({ title: "", description: "", date: "", img: null });
                 setPreview(null);
             } else {
-                setMessage("❌ Error uploading event.");
+                setMessage("Error uploading event.");
             }
         } catch (error) {
-            setMessage("❌ Server error. Please try again.");
+            setMessage("Server error. Please try again.");
         }
     };
 
