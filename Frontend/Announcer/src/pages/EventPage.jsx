@@ -7,34 +7,38 @@ function EventPage() {
   const [allEventPosters, setAllEventPosters] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [zoomImage, setZoomImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   const eventPosters = allEventPosters;
 
   useEffect(() => {
-    const fetchPosters = async () => {
-      try {
-        const res = await fetch(`${api_url}/api/getallPosters`);
-        const data = await res.json();
-        console.log(data);
-        if (res.ok) {
-          const formatted = data.map((item, index) => ({
-            id: item._id || index,
-            title: item.title,
-            description: item.desc,
-            date: item.date,
-            img: item.imageBase64,
-          }));
-          setAllEventPosters(formatted);
-        } else {
-          console.error("Backend error:", data.msg);
-        }
-      } catch (err) {
-        console.error("Fetch failed:", err);
+  const fetchPosters = async () => {
+    try {
+      const res = await fetch(`${api_url}/api/getallPosters`);
+      const data = await res.json();
+      if (res.ok) {
+        const formatted = data.map((item, index) => ({
+          id: item._id || index,
+          title: item.title,
+          description: item.desc,
+          date: item.date,
+          img: item.imageBase64,
+        }));
+        setAllEventPosters(formatted);
+      } else {
+        console.error("Backend error:", data.msg);
       }
-    };
+    } catch (err) {
+      console.error("Fetch failed:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchPosters();
-  }, []);
+  fetchPosters();
+}, []);
+
 
   const downloadPoster = (imgSrc, title) => {
     const link = document.createElement("a");
@@ -85,20 +89,27 @@ function EventPage() {
         </div>
       )}
 
-      <div className={`grid ${selectedEvent ? 'blurred' : ''}`}>
-        {eventPosters.map((event) => (
-          <div key={event.id} className="card" onClick={() => setSelectedEvent(event)}>
-            <img
-              src={event.img}
-              alt={event.title}
-              onError={(e) => (e.target.style.display = 'none')}
-            />
-            <div className="event-content">
-              <h2>{event.title}</h2>
-            </div>
-          </div>
-        ))}
+      {loading ? (
+  <div className="loading">Loading posters...</div>
+) : (
+  <div className={`grid ${selectedEvent ? 'blurred' : ''}`}>
+    {eventPosters.map((event) => (
+      <div key={event.id} className="card" onClick={() => setSelectedEvent(event)}>
+        <img
+          src={event.img}
+          alt={event.title}
+          onError={(e) => (e.target.style.display = 'none')}
+        />
+        <div className="event-content">
+          <h2>{event.title}</h2>
+        </div>
       </div>
+    ))}
+  </div>
+)}
+
+
+
     </div>
   );
 }
