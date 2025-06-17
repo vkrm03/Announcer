@@ -116,7 +116,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <p>
-            Wanna change password?{' '}
+            forgot password?{' '}
             <span className="change-pwd" onClick={() => setIsChangingPwd(true)}>
               click here
             </span>
